@@ -1,9 +1,9 @@
 import re
  
-f = open('access.log')
+f = open("access.log")
  
 log_contents = filter(None, f.read().split('\n'))
- 
+
 for line in (log_contents):
   entries = re.findall(r'"([^"]*)"', line)
   url = entries[0].split(' ')[1]
@@ -12,6 +12,6 @@ for line in (log_contents):
 if(len(url_parts) > 1):
     query = url_parts[1]
 if(query.find('password') > -1):
-print("Likely credentials found:")
-print(query)
-print("\n")
+	print("Likely credentials found:")
+	print(query)
+	print("\n")
